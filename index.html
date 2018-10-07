@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Coresecure Sample</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <header class="header">
+      <h1><a href="#">Coresecure Sample</a></h1>
+      <nav>
+        <input type="checkbox" id="menu" class="mobile-menu-checkbox">
+        <label for="menu" class="mobile-menu-label">☰ Menu</label>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Log In</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="section-video">
+        <video src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164" controls ></video>
+      </section>
+      <section class="section-bird">
+        <img src="https://openclipart.org/download/191741/Blue-Bird.svg" alt="a blue bird">
+        <div class="text-block">
+          <p>This is an open-source picture of a blue bird with a text block overlay.</p>
+        </div>
+      </section>
+      <section class="section-info">
+        <button onclick="showInfo()">Show the Hidden Div!</button>
+        <div class="special-div hidden">
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <nav>
+        <ul>
+          <li><a href="#">Back to Top</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Log In</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <script type="text/javascript">
+
+      const button = document.querySelector('button');
+      const hiddenDiv = document.querySelector('.special-div');
+
+      hiddenDiv.innerHTML = `
+        <h1>User Agent:</h1>
+        <p>${navigator.userAgent}</p>
+        <h1>Browser Language:</h1>
+        <p>${navigator.language}</p>
+        <h1>Timezone Offset:</h1>
+        <p>${new Date().getTimezoneOffset()}</p>
+      `;
+
+      function showInfo() {
+        hiddenDiv.classList.toggle('hidden');
+
+        if (hiddenDiv.classList.contains('hidden')) {
+          button.innerHTML = 'Show the Hidden Div!';
+        } else {
+          button.innerHTML = 'Hide the Div!';
+        }
+      }
+
+    </script>
+  </body>
+</html>
